@@ -1,5 +1,7 @@
 = Quick start: manage an API and set up a proxy for
 
+//Exercise #2
+
 In this following walkthrough, we will how to create an API that can be mannged via API Manager and setting up a proxy for it that runs in CloudHub. Just follow the steps!
 
 == Creating an API asset in Exchange

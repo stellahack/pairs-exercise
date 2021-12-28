@@ -1,0 +1,52 @@
+= To Publish Messages
+
+//Exercise #4
+
+This operation lets you to create a new JMS Message and send it to the specified end destination, be it a Queue or a Topic. With it, you can configure not only the content of the message, but also all the headers that may be need.
+
+== Sending a Message to a Queue
+When used in its default form, the connector will publish whatever it is in the message payload:
+
+. In your Studio flow, select the *Publish* operation.
+Set the *Destination* field to the que name, for example `invoiceQueue`.
+
+In the XML editor, the `<jms:publish>` and `destination` configurations looks like this:
+
+[source,xml,linenums]
+----
+<jms:publish destination="invoiceQueue" config-ref="JM_config"/>
+----
+
+But what happens if the payload is not in the correct format, and you actually need to make a transformation? You could place a DataWeave transformation before the `publish` operation, but then that would make the message payload to change and impact the operation placed after the `publish` operation.
+
+To avoid this impact, the DataWeave transformation needs to be placed inside the *Publish* operation. The transformation can generate the content to publish without producing a side-effect on the message in transit. In these following example, you show how to configure the transformation inside the operation:
+
+. In your Studio flow, the *Publish* operation is selected.
+. Set the *Destination* field to queue name, for example `invoiceQueue`.
+
+. In the *Body* field, set this following DataWeave transformation:
+
+[source,DataWeave,linenums]
+----
+%dw 2.0
+output application/json
+---
+payload.payments
+----
+
+In the XML editor, the `<jms:body>` configuration look like this:
+
+[source,xml,linenums]
+----
+<jms:publish destination="invoiceQueue" config-ref="JMS_config">
+ <jms:message>
+   <jms:body>#[%dw 2.0
+  output application/json
+  ---
+  payload.payments
+  ]</jms:body>
+ </jms:message>
+</jms:publish>
+----
+
+Now, the transformaton can be used for generating the content that will be published, without producing a side effect on the message in transit.

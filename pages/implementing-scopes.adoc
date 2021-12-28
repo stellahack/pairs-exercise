@@ -1,5 +1,7 @@
 = Implementing scopes 
 
+//Exercise #3
+
 The OAuth 2.0 https://tools.ietf.org/html/rfc6749#page-23[scopes] make it so you can further limit access to something protected by OAuth. You have the ability of control by defining words, such as `READ` and `WRITE` or others that you might want that might be more specific like `CONTRATOR`, `PUBLIC`, `EMPLOYEES_ONLY`, and etc.. And you can put them in four different places, like…:
 
 * In the universal set definition that is called `defaultScopes` and that is where you define all of the possible scopes you might want:
