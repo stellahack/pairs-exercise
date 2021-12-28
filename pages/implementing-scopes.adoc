@@ -40,16 +40,6 @@ clientStore="clientObjectStore">
     </oauth2-provider:token-config>
     <oauth2-provider:authorization-config path="/authorize" authorizationCodeStore="authorizationCodeObjectStore"/>
     </oauth2-provider:config>
-
-    <flow name="validateToken"
-        <http:listener path="/validate" config-ref="https.listener"/>
-        <oauth2-provider:validate-token scopes="#[['PUBLIC_READ']]" config-ref="external-oauth2-provider" accessToken="#[attributes.queryParams.access_token]"/>
-        <error-handler>
-        <on-error-continue type="OAUTH2-PROVIDER:TOKEN_UNAUTHORIZED">
-        <set-payload value="UNAUTHORIZED_TOKEN"/>
-        </on-error-continue>
-        </error-handler>
-        </flow>
 ...
 ----
 

@@ -1,3 +1,5 @@
+//Exercise #1
+
 When a Mule app starts, a connectivity test runs on components, such as the HTTP or FTP connector, that need to connect to an external server and if the test fails the default behavior is to log a warning message and continue with the deployment of the app, instead of blocking the deployment.
 
 You can modify this behavior by setting a number of reconnection attempts to try after an initial failure and by forcing the deployment to fail when all connection attempts fail.
