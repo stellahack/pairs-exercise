@@ -1,6 +1,6 @@
 = Quick start: manage an API and set up a proxy for
 
-//Exercise #2
+//Exercise for editor candidate
 
 In this following walkthrough, we will how to create an API that can be mannged via API Manager and setting up a proxy for it that runs in CloudHub. Just follow the steps!
 
@@ -11,7 +11,7 @@ Use the following steps:
 
 In order to have an API that can be managed through API Manager, the first step consists in you create an API asset in Anypoint Exchange.
 
-. <<create_an_api, Create an API in Exchange.>>
+. <<create_an_api, Create an API in Exchange>>
 . <<import-api-to-API-Manager, Import Your API to API Manager.>>
 . <<<<configure_and_deploy_to_cloudhub, Configure an API proxy and deploy it to CloudHub.>>
 
