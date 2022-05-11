@@ -2,38 +2,52 @@
 
 //Exercise for editor candidate
 
-In this following walkthrough, we will how to create an API that can be mannged via API Manager and setting up a proxy for it that runs in CloudHub. Just follow the steps!
+In the following exercise, we will create an API that can be managed via API Manager and set up a proxy for the API that runs in CloudHub. Follow these steps:
 
-== Creating an API asset in Exchange
+== Creating an API asset in AnyPoint Exchange
 
-Use the following steps:
-
-
-In order to have an API that can be managed through API Manager, the first step consists in you create an API asset in Anypoint Exchange.
+Follow these steps to create a new asset:
+//if there is a standard intro for procedures, use it here.
 
 . <<create_an_api, Create an API in Exchange>>
+// Are we creating an API in the current procedure, or linking to a different topic? 
+//OK to shorten "Anypoint Exchange" to "Exchange"? 
 . <<import-api-to-API-Manager, Import Your API to API Manager.>>
 . <<<<configure_and_deploy_to_cloudhub, Configure an API proxy and deploy it to CloudHub.>>
+// Consider removing steps 1-3 from the procedure and perhaps presenting in the overview sentence preceding the "Creating an API" heading.. Ex: "To create an API proxy, you will create the API in Exchange, add the API to API Manager," etc.
+. Go to this URL: https://anypoint.mulesoft.com/exchange
+//Make the above step 1, because that's the first actual user action.
+//Does the user need to log in or authenticate when they log in, before the next step?
 
-. Go to this URL https://anypoint.mulesoft.com/exchange
-. Click in `New Asset` button.
-. In the `Publish New Asset` view, choose the asset type and and asset name. In case of the asset type being RAML, OAS or WSDL, the corresponding associated file has to also be specified.
-. Click on `Publish button.`
+. Click the `New Asset` button.
+. In the `Publish New Asset` view, choose the asset type and and asset name. 
+// Are we choosing an asset name from an existing list, or do we need to create a new asset with a new name?
+If you choose the asset type  RAML, OAS or WSDL, specify the associated file.
+//What type of file (extension)? Will the user already know what file is needed, and will it already be installed?
+//Is there a specific directory or path for the associated file?
+//Perhaps link to a list of asset types?
 
-Now, we have successfully created an API asset in the Exchange!
+. Click the `Publish' button.
 
-== Managing the API from API Manager
+Now we have successfully created an API asset in the Exchange.
+//Perhaps something like "You see the new asset in the Exchange window"--i.e. tell the user what they'll see when it is sucessful.
 
-Next step consists of importing the created asset to API Manager, so the API can be managed as in deploy and download proxies apply policies, configure access to it and more.
+== Importing the asset into API Manager
 
-Follow this steps in order to import your API in API Manager to manage it:
+Follow these steps to import your new asset API into API Manager:
 
-. In the API Administration Dashboard click in Manage API > Manage API from Exchange
+. In the API Administration Dashboard, click Manage API > Manage API from Exchange
+//Is Manage API a tab, a drop-down menu, or ? Can we guide the user more explicitly?
 
-In the next screen, you have to complete the following fields:
+. In the next screen,  complete the following fields:
+//Does the next screen have a name, such as "Import New Asset"? Is it a dialog box?
+//Set the following instructions as sub-steps to step 2. Alternatively, give each its own numbered step at the same level.
 *API Name*: Type the first characters of the API name that you created in Exchange.
-**Managing Type*: You may choose `Basic Endpoint` and `Endpoint with Proxy`. Here we are using the endpoint with proxy.*Asset Type*: For this example we are going to use HTTP, but maybe you want to create a RAML/OAS or WSDL API.
+//Check style guide--use "Enter" instead of "Type"?
+**Managing Type*: For this example, choose `Endpoint with Proxy`. 
+*Asset Type*: Choose HTTP.
  *Mule version* If you are managing an API for Mule 4 and above, put an `x` in this checkbox.
+ //Query: verion number.
 *Implementation URI*: Enter the URL for which the API implementation resides. For this example, we are using http://my-implementation.company.com
 
 If you are managing an API for Mule 4 or above, please make sure you select the checkbox. In this example, we are creating the API for Mule 4.
